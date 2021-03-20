@@ -17,15 +17,15 @@
                 <br>
                 <h1>Validador CPF</h1>
                 <hr>
-                <div class="alert alert-success" role="alert">
+                <div th:if="${verdade}" class="alert alert-success" role="alert">
                     Foi validado com sucesso
                 </div>
-                <div class="alert alert-danger" role="alert">
+                <div th:unless="${verdade}" class="alert alert-danger" role="alert">
                     Não foi validado com sucesso
                 </div>
             </div>
         </div>
     </div>
-</body>
 
+</body>
 </html>

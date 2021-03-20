@@ -3,24 +3,30 @@ package com.validador.cpf.validadorCpf.models;
 import java.util.InputMismatchException;
 
 public class Cliente {
-    private String nome;
-    private String cpf;
-    public String getNome() {
-        return nome;
-    }
-    public String getCpf() {
-        return cpf;
-    }
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
-    }
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
+	private String nome;
+	private String cpf;
 
-    public boolean validaCPF() {
-        String CPF = this.cpf;
-		CPF = CPF.replace(".", "").replace("-", "").replace(" ", "");
+	public String getNome() {
+		return nome;
+	}
+
+	public String getCpf() {
+		return cpf;
+	}
+
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public boolean validaCPF() {
+		if (this.cpf == null)
+			return false;
+		String CPF = this.cpf;
+		CPF = CPF.replaceAll("\\.|-| |[a-zA-Z] , ", "");
 
 		// considera-se erro CPF's formados por uma sequencia de numeros iguais
 		if (CPF.equals("00000000000") || CPF.equals("11111111111") || CPF.equals("22222222222")
@@ -75,5 +81,5 @@ public class Cliente {
 		} catch (InputMismatchException erro) {
 			return (false);
 		}
-    }
+	}
 }

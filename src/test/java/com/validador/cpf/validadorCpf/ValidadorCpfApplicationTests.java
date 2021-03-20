@@ -70,5 +70,13 @@ class ValidadorCpfApplicationTests {
 		cliente.setNome("Gabi");
 		cliente.setCpf("13252201089 ");
 		assertEquals(true, cliente.validaCPF());
+	}
+
+	@Test
+	void fazendoTesteDeCpfInvalidoQuePassou() {
+		Cliente cliente = new Cliente();
+		cliente.setNome("Gabi");
+		cliente.setCpf("69b.969.790-88");
+		assertEquals(false, cliente.validaCPF());
 	}	
 }
