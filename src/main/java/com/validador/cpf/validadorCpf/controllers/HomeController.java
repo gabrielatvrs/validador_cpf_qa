@@ -13,6 +13,7 @@ public class HomeController {
 
     @GetMapping("/valida-cpf")
     public String validaCpf() {
+        //boolean verdade = isCPF(CPF);
         return "home/cpfValidado";
     }
 }
